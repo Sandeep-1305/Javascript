@@ -1,0 +1,105 @@
+/* General body and page styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.page {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+
+#home-page {
+    display: block;
+}
+
+/* Container for the buttons */
+.button-row {
+    margin: 20px 0;
+}
+
+/* Styling for the buttons */
+button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 16px;
+    background-color: #52c056;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Styling for input fields */
+input[type="number"] {
+    padding: 10px;
+    margin: 20px;
+    font-size: 16px;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Styling for result text */
+p {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Back to Home button styling */
+button#back-home {
+    margin-top: 30px;
+    background-color: #f44336;
+}
+
+button#back-home:hover {
+    background-color: #e53935;
+}
+
+/* Header styling */
+h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+/* General styling for the pages */
+#home-page, #even-odd-page, #prime-page, #factorial-page, #fibonacci-page {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    input[type="number"] {
+        width: 90%;
+    }
+
+    button {
+        padding: 12px 25px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

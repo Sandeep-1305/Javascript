@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Page Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="home-page" class="page">
+        <h1>Home Page</h1>
+        <div class="button-row">
+            <button onclick="showPage('even-odd-page')">1.Even or Odd</button>
+            <button onclick="showPage('prime-page')">2.Prime Numbers</button>
+        </div>
+        <div class="button-row">
+            <button onclick="showPage('factorial-page')">3.Factorial no</button>
+            <button onclick="showPage('fibonacci-page')">4.Fibonacci no</button>
+        </div>
+    </div>
+
+    <div id="even-odd-page" class="page">
+        <h1>Even or Odd</h1>
+        <input type="number" id="even-odd-input" placeholder="Enter a number" />
+        <button onclick="checkEvenOdd()">Check</button>
+        <p id="even-odd-result"></p>
+        <button onclick="showPage('home-page')">Back to Home</button>
+    </div>
+
+    <div id="prime-page" class="page">
+        <h1>Prime Numbers</h1>
+        <input type="number" id="prime-input" placeholder="Enter a number" />
+        <button onclick="checkPrime()">Check</button>
+        <p id="prime-result"></p>
+        <button onclick="showPage('home-page')">Back to Home</button>
+    </div>
+
+    <div id="factorial-page" class="page">
+        <h1>Factorial</h1>
+        <input type="number" id="factorial-input" placeholder="Enter a number" />
+        <button onclick="calculateFactorial()">Calculate Factorial</button>
+        <p id="factorial-result"></p>
+        <button onclick="showPage('home-page')">Back to Home</button>
+    </div>
+
+    <div id="fibonacci-page" class="page">
+        <h1>Fibonacci Sequence</h1>
+        <input type="number" id="fibonacci-input" placeholder="Enter a number" />
+        <button onclick="generateFibonacci()">Generate Fibonacci</button>
+        <p id="fibonacci-result"></p>
+        <button onclick="showPage('home-page')">Back to Home</button>
+    </div>
+
+    <script>
+        // Function to show the specified page
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.style.display = 'none');
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        // Home page is shown by default
+        showPage('home-page');
+
+        // Function to check if a number is even or odd
+        function checkEvenOdd() {
+            const num = document.getElementById('even-odd-input').value;
+            const result = num % 2 === 0 ? 'Even' : 'Odd';
+            document.getElementById('even-odd-result').textContent = `The number is: ${result}`;
+        }
+
+        // Function to check if a number is prime
+        function checkPrime() {
+            const num = document.getElementById('prime-input').value;
+            if (num <= 1) {
+                document.getElementById('prime-result').textContent = 'Enter a number greater than 1';
+                return;
+            }
+            let isPrime = true;
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            const result = isPrime ? 'Prime' : 'Not Prime';
+            document.getElementById('prime-result').textContent = `The number is: ${result}`;
+        }
+
+        // Function to calculate factorial of a number
+        function calculateFactorial() {
+            const num = document.getElementById('factorial-input').value;
+            if (num < 0) {
+                document.getElementById('factorial-result').textContent = 'Enter a non-negative number';
+                return;
+            }
+            let factorial = 1;
+            for (let i = 1; i <= num; i++) {
+                factorial *= i;
+            }
+            document.getElementById('factorial-result').textContent = `Factorial: ${factorial}`;
+        }
+
+        // Function to generate Fibonacci sequence up to a certain number
+        function generateFibonacci() {
+            const num = document.getElementById('fibonacci-input').value;
+            if (num <= 0) {
+                document.getElementById('fibonacci-result').textContent = 'Enter a positive number';
+                return;
+            }
+            let fib = [0, 1];
+            for (let i = 2; i < num; i++) {
+                fib.push(fib[i - 1] + fib[i - 2]);
+            }
+            document.getElementById('fibonacci-result').textContent = `Fibonacci sequence: ${fib.join(', ')}`;
+        }
+    </script>
+</body>
+</html>
